@@ -17,5 +17,7 @@ The data will be saved in _.xlsx_ (excel format)
 
 ### Run Script
 * Simply run get_rm.py 
-* This will create 2 files; one in "data/buy/" path and another in "data/rent/" path. 
-* File names will be [date]RM_buy_[borough key].xlsx
+* This will create:
+ * (if they dont exist already) main "data" folder and "buy", "rent" subfolders.  
+ * 2 files; one in "data/buy/" path and another in "data/rent/" path. 
+* File name convention will be [date]RM_buy_[borough key].xlsx
