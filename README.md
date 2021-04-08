@@ -2,7 +2,7 @@
 rightmove.co.uk is one of the leading rent and sale property listing websites in the UK.
 
 Here you will find some simple scripts that will retrieve properties for rent or sale based on a defined area. 
-The data will be saved in .xlsx (excel format)
+The data will be saved in _.xlsx_ (excel format)
 
 ## Instructions
 ### Add location(s) to search
@@ -13,3 +13,5 @@ The data will be saved in .xlsx (excel format)
     * https://www.rightmove.co.uk/property-for-sale/map.html?areaSizeUnit=sqft&channel=BUY&currencyCode=GBP&locationIdentifier=USERDEFINEDAREA%5E%7B%22polylines%22%3A%22whkyHnrf%40oKugAnr%40sZlJha%40%7CH~l%40ky%40%7C%5E_A%7DJ%22%7D&mustHave=&propertyTypes=&radius=0.0&sortType=2&viewType=MAP
     * Copy everything from "locationIdentifier" until the next "&". 
     * _LocationIdentifier=USERDEFINEDAREA%5E%7B%22polylines%22%3A%22whkyHnrf%40oKugAnr%40sZlJha%40%7CH~l%40ky%40%7C%5E_A%7DJ%22%7D_
+  * Add as many locations as you wish. A new _.xlsx_ file will be created for each location and the date it was scrapped.
+* Save locations_dict.py in th same folder as the main scrapper
