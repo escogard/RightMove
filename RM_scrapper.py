@@ -12,10 +12,10 @@ today = date.today().strftime('%Y%m%d')
 yesterday = (date.today() - timedelta(days=1)).strftime('%Y%m%d')
 print("Today is : ", today)
 
-def rms_buy(borough,location):
+def rms_buy(borough,location, min_rooms=1, max_rooms=6):
     '''Takes a borough name and a right move user defined location. Recommend to use dict'''
     # Get initial page
-    base_url = "https://www.rightmove.co.uk/property-for-sale/find.html?maxBedrooms=3&minBedrooms=2&sortType=6&propertyTypes=&mustHave=&dontShow=&furnishTypes=&keywords=&"
+    base_url = f"https://www.rightmove.co.uk/property-for-sale/find.html?maxBedrooms={max_rooms}&minBedrooms={min_rooms}&sortType=6&propertyTypes=&mustHave=&dontShow=&furnishTypes=&keywords=&"
     base_url += location
     page = requests.get(base_url)
     soup = BeautifulSoup(page.content, 'html.parser')
@@ -104,10 +104,10 @@ def rms_buy(borough,location):
 
 
 
-def rms_rent(borough,location):
+def rms_rent(borough,location, min_rooms=1, max_rooms=6):
     # Get initial page
     print(borough)
-    base_url = "https://www.rightmove.co.uk/property-to-rent/find.html?minBedrooms=2&maxBedrooms=3&keywords=&sortType=6&viewType=LIST&channel=RENT&index=0&radius=0.0&"
+    base_url = f"https://www.rightmove.co.uk/property-to-rent/find.html?minBedrooms={min_rooms}&maxBedrooms={max_rooms}&keywords=&sortType=6&viewType=LIST&channel=RENT&index=0&radius=0.0&"
     base_url += location
     page = requests.get(base_url)
     soup = BeautifulSoup(page.content, 'html.parser')
