@@ -24,11 +24,11 @@ def rms_buy(borough,location, min_rooms=1, max_rooms=6):
     big_df = pd.DataFrame()
     listings_html = soup.find_all('span',class_='searchHeader-resultCount')
     listings_n = int(listings_html[0].get_text())
-    print(listings_n)
+    print(f"Buy Listings in {borough}:{listings_n}")
     ##### Get all listing from search in every row
     for page in tqdm(range(0,listings_n, 24)): #24 is the number of listings per page
         #scraping each page
-        print(page)
+        #print(page)
         base_url = "https://www.rightmove.co.uk/property-for-sale/find.html?maxBedrooms=3&minBedrooms=2&sortType=6&propertyTypes=&mustHave=&dontShow=&furnishTypes=&keywords=&"
         base_url += location
         idx_page = '&index=' + str(page)
@@ -106,7 +106,6 @@ def rms_buy(borough,location, min_rooms=1, max_rooms=6):
 
 def rms_rent(borough,location, min_rooms=1, max_rooms=6):
     # Get initial page
-    print(borough)
     base_url = f"https://www.rightmove.co.uk/property-to-rent/find.html?minBedrooms={min_rooms}&maxBedrooms={max_rooms}&keywords=&sortType=6&viewType=LIST&channel=RENT&index=0&radius=0.0&"
     base_url += location
     page = requests.get(base_url)
@@ -116,7 +115,7 @@ def rms_rent(borough,location, min_rooms=1, max_rooms=6):
     big_df = pd.DataFrame()
     listings_html = soup.find_all('span',class_='searchHeader-resultCount')
     listings_n = int(listings_html[0].get_text())
-
+    print(f"Rent Listings in {borough}: {listings_n}")
     ##### Get all listing from search in every row
     for page in tqdm(range(0,listings_n, 24)): #24 is the number of listings per page
         #scraping each page
